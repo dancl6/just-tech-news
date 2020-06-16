@@ -1,7 +1,7 @@
 async function deleteFormHandler(event) {
     event.preventDefault();
   
-    const comment_text = document.querySelector('textarea[name="comment-body"]').value.trim();
+    // const comment_text = document.querySelector('textarea[name="comment-body"]').value.trim();
     console.log("data for window:");
     console.log(window.location.toString());
     const id = window.location.toString().split('/')[
@@ -9,15 +9,15 @@ async function deleteFormHandler(event) {
     ];
   
     // if (comment_text) {
-        await fetch(`/api/posts/${id}`, {
+     const response =    await fetch(`/api/posts/${id}`, {
             method: 'DELETE'
           });
     
-    //   if (response.ok) {
-    //     document.location.replace('/dashboard/')
-    //   } else {
-    //     alert(response.statusText);
-    //   }
+      if (response.ok) {
+        document.location.replace('/dashboard/')
+      } else {
+        alert(response.statusText);
+      }
     // }
 
   }
