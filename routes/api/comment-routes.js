@@ -43,6 +43,8 @@ router.post('/', (req, res) => {
     });
 });
 
+console.log("test");
+
 router.delete('/:id', (req, res) => {
   Comment.destroy({
     where: {
