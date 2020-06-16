@@ -91,6 +91,27 @@ router.get('/', withAuth, (req, res) => {
       });
   });
 
-
+  router.post('/', withAuth, (req, res) => {
+    // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+    Post.create({
+      title: req.body.title,
+      post_url: req.body.post_url,
+      user_id: req.session.user_id
+    // })
+      // .then(dbPostData => res.json(dbPostData))
+      // .catch(err => {
+      //   console.log(err);
+      //   res.status(500).json(err);
+      })
+      .then(dbPostData => {
+        // serialize data before passing to template
+        const posts = dbPostData.map(post => post.get({ plain: true }));
+        res.render('dashboard', { posts, loggedIn: true });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
   
 module.exports = router;
