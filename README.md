@@ -42,6 +42,6 @@ npm run test
 
 ## Questions
 
-[User Git Hub Link](https://github.com/https://github.com/dancl6/just-tech-news/ )
+[User Git Hub Link](https://github.com/dancl6/just-tech-news/ )
 
 User Email: danielclyons@yahoo.com
